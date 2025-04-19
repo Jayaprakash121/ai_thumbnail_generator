@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Thumbnails</title>
+</head>
+<body>
+    <h2>Your Thumbnails</h2>
+
+    <h3>With User Title: {{ title }}</h3>
+    <img src="{{ img1 }}"><br>
+    {% if img1 %}
+    <a href="/download/{{ img1.split('/')[-1] }}">Download</a>
+    {% else %}
+    <p>❌ Thumbnail generation failed.</p>
+    {% endif %}
+
+
+    <h3>With AI-Enhanced Title: {{ ai_title }}</h3>
+    <img src="{{ img2 }}"><br>
+    {% if img2 %}
+    <a href="/download/{{ img2.split('/')[-1] }}">Download</a>
+    {% else %}
+    <p>❌ Thumbnail generation failed.</p>
+    {% endif %}
+
+    <br><br>
+    <a href="/">View History / Generate Another</a>
+</body>
+</html>

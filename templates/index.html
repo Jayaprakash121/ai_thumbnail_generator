@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Thumbnail Generator</title>
+    <link rel='stylesheet' href="{{url_for('static', filename='style1.css')}}">
+</head>
+<body>
+    <div class='main'>
+        <h1>AI Thumbnail Generator</h1>
+        <p>Transform your ideas into stunning, eye-catching thumbnails instantly – 
+            our powerful AI Thumbnail Maker generates professional-quality designs with just one click.
+        </p>
+        <form action="/" method="post" class='fs'>
+            <label>Enter your Title:</label><br>
+            <input type="text" name="title" placeholder="Your Title..." required><br><br>
+
+            <label>Enter your Concept Note:</label><br>
+            <textarea name="concept_note" placeholder="Your brief concept..." required></textarea><br><br>
+
+            <button type="submit" class='button-86'>Generate</button>
+        </form>
+    </div>
+    <hr>
+
+    <h2>Thumbnail History</h2>
+    <div class="gallery">
+        {% if thumbnails %}
+          {% for thumb in thumbnails %}
+            <div class="sub-gallery">
+                <img src="{{ thumb }}" alt="Thumbnail">
+                <a href="{{ url_for('download', filename=thumb.split('/')[-1]) }}" class="button-89">Download</a>
+            </div>
+          {% endfor %}
+        {% else %}
+            <p>No previous thumbnails available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
